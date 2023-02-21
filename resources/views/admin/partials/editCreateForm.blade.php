@@ -1,7 +1,8 @@
 
 
-<form action="{{route('admin.posts.store')}}" method="POST">
+<form action="{{route($routeName)}}" method="POST">
    @csrf
+   @method($method)
    <div class="mb-3">
       <label for="post_title" class="form-label">Title</label>
       <input type="text" class="form-control" id="post_title" placeholder="" name="title" value="{{old('title', $post->title)}}">
