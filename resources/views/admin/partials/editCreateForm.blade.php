@@ -4,11 +4,11 @@
    @csrf
    <div class="mb-3">
       <label for="post_title" class="form-label">Title</label>
-      <input type="text" class="form-control" id="post_title" placeholder="" name="title">
+      <input type="text" class="form-control" id="post_title" placeholder="" name="title" value="{{old('title', $post->title)}}">
     </div>
     <div class="mb-3">
       <label for="post_content" class="form-label">Post textarea</label>
-      <textarea class="form-control" id="post_content" rows="15" name="content"></textarea>
+      <textarea class="form-control" id="post_content" rows="15" name="content" value=></textarea>
     </div>
 
     <div class="mb-3">
