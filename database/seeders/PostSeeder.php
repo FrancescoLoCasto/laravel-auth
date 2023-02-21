@@ -6,6 +6,7 @@ use App\Models\Post;
 use Faker\Generator as Faker;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class PostSeeder extends Seeder
 {
@@ -19,11 +20,11 @@ class PostSeeder extends Seeder
         //
         for ($i=0; $i <50 ; $i++) { 
             $newPost = new Post();
-            $newPost->slug = '';
-            $newPost->title = '';
-            $newPost->author = '';
-            $newPost->content = '';
-            $newPost->date = '';
+            $newPost->title = $faker->unique()->sentence(4);
+            $newPost->slug = Str::slug($newPost->title);
+            $newPost->author = $faker->name();
+            $newPost->content = $faker->text(200);
+            $newPost->post_date = $faker->dateTimeThisYear();
         }
     }
 }
