@@ -16,7 +16,7 @@
 
     <div class="mb-3">
       <label for="post_date" class="form-label">Post Date</label>
-      <input type="date" class="form-control" id="post_date" rows="5" name="post_date" value="{{old('post_date', $post->post_date)}}"></input>
+      <input type="datetime" class="form-control" id="post_date" rows="5" name="post_date" value="{{old('post_date', $post->post_date)}}"></input>
     </div>
 
     <div class="">
