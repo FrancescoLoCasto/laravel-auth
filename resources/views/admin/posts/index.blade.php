@@ -3,7 +3,11 @@
 @section('content')
 <div class="container">
 
-
+   @if (session('message'))
+      <div class="allert allert-{{session('message-class')}}">
+         {{session('message')}}
+      </div>
+   @endif
 
    <table class="table table-striped table-bordered table-hover m-5">
       <thead>
