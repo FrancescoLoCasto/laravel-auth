@@ -1,6 +1,6 @@
 
 
-<form action="{{route($routeName)}}" method="POST">
+<form action="{{route($routeName, $post)}}" method="POST">
    @csrf
    @method($method)
    <div class="mb-3">

@@ -10,6 +10,16 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
+
+    protected $validationRules = 
+        [
+            'title' => ['required','unique:posts'],
+            'post_date' => 'required',
+            'content' => 'required',
+            'title' => 'required',
+
+        ];
+    
     /**
      * Display a listing of the resource.
      *
@@ -39,17 +49,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $data= $request->validate([
-            'title' => 'required|unique:posts',
-            'post_date' => 'required',
-            'content' => 'required',
-            'title' => 'required',
-
-        ],
-        
-        [
-
-        ]);
+        $data= $request->validate($this->validationRules);
 
         $data['author'] = Auth::user()->name;
         $data['slug'] = Str::slug($data ['title']) ;
@@ -79,7 +79,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        return view('admin.posts.edit', ['post' => $post]);
     }
 
     /**
