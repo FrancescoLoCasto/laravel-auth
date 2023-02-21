@@ -2,7 +2,8 @@
 
 @section('content')
 <div class="container">
- 
-  @include('admin.partials.editCreateForm', ['method'=>POST','routeName','admin.posts.store'])
+
+
+ @include('admin.partials.editCreateForm', ['method'=>'','routeName'=>'admin.posts.store'])
 </div>
-@endsection
+
