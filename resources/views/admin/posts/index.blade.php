@@ -31,7 +31,7 @@
                <a href="" class="btn btn-sm btn-primary">
                   Edit
                </a>
-               <a href="" class="btn btn-sm btn-warning">
+               <a href="{{route ('admin.posts.show', $post->id)}}" class="btn btn-sm btn-warning">
                   Show
                </a>
                <a href="" class="btn btn-sm btn-danger">
