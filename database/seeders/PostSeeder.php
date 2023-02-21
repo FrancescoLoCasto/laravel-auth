@@ -25,6 +25,8 @@ class PostSeeder extends Seeder
             $newPost->author = $faker->name();
             $newPost->content = $faker->text(200);
             $newPost->post_date = $faker->dateTimeThisYear();
+            $newPost->content = $faker->text(200);
+            $newPost->save();
         }
     }
 }
