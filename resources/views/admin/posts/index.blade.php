@@ -38,9 +38,15 @@
                <a href="{{route ('admin.posts.show', $post->id)}}" class="btn btn-sm btn-warning">
                   Show
                </a>
-               <a href="" class="btn btn-sm btn-danger">
-                  Delete
-               </a>
+
+               <form action="{{route('admin.posts.destroy', $post->id)}}" method="POST" class="d-inline-block">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-sm btn-danger">
+                     Delete
+                  </button>
+               </form>
+
             </td>
          </tr>
          @endforeach
