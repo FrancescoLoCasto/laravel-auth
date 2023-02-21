@@ -8,12 +8,14 @@
     </div>
     <div class="mb-3">
       <label for="post_content" class="form-label">Post textarea</label>
-      <textarea class="form-control" id="post_content" rows="15" name="content" value=></textarea>
+      <textarea class="form-control" id="post_content" rows="15" name="content" >
+         {{old('content', $post->content)}}
+      </textarea>
     </div>
 
     <div class="mb-3">
       <label for="post_date" class="form-label">Post Date</label>
-      <input type="date" class="form-control" id="post_date" rows="5" name="post_date"></input>
+      <input type="date" class="form-control" id="post_date" rows="5" name="post_date" value="{{old('post_date', $post->post_date)}}"></input>
     </div>
 
     <div class="">
