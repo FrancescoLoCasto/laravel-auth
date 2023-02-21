@@ -91,7 +91,7 @@ class PostController extends Controller
     {
         $data= $request->validate([
                 'title' => ['required', Rule::unique('posts')->ignore($post->id)],
-                'post_date' => 'required',
+                'post_date' => 'required|after:yesterday',
                 'content' => 'required',
         ]);
         $post->update($data);

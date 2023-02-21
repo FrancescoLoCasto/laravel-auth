@@ -13,9 +13,9 @@
       <div class="card-body">
         <h5 class="card-title">{{$post->title}}</h5>
         <p class="card-text">{{$post->content}}</p>
-        <a href="#" class="btn btn-sm btn-success">
+        <a href="{{route('admin.posts.edit', $post->id)}}" class="btn btn-sm btn-primary">
          Edit
-        </a>
+         </a>
         <a href="#" class="btn btn-sm btn-danger">
          Delete
         </a>
