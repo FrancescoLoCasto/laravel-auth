@@ -94,7 +94,8 @@ class PostController extends Controller
                 'post_date' => 'required',
                 'content' => 'required',
         ]);
-        dd($data);
+        $post->update($data);
+        return redirect()->route('admin.posts.show', compact('post'));
     }
 
     /**
