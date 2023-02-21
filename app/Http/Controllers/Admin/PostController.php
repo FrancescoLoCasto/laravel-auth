@@ -7,19 +7,17 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
+
 
 class PostController extends Controller
 {
-
-    protected $validationRules = 
-        [
-            'title' => ['required','unique:posts'],
-            'post_date' => 'required',
-            'content' => 'required',
-            'title' => 'required',
-
-        ];
     
+    protected $validationRules =[
+        'title' => ['required', 'unique:posts'],
+        'post_date' => 'required',
+        'content' => 'required',
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -86,12 +84,17 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Post $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Post $post )
     {
-        dd($request->all());
+        $data= $request->validate([
+                'title' => ['required', Rule::unique('posts')->ignore($post->id)],
+                'post_date' => 'required',
+                'content' => 'required',
+        ]);
+        dd($data);
     }
 
     /**
