@@ -32,14 +32,14 @@
             <td>{{$post->author}}</td>
             <td>{{$post->post_date}}</td>
             <td>
-               <a href="{{route('admin.posts.edit', $post->id)}}" class="btn btn-sm btn-primary">
+               <a href="{{route('admin.posts.edit', $post->slug)}}" class="btn btn-sm btn-primary">
                   Edit
                </a>
-               <a href="{{route ('admin.posts.show', $post->id)}}" class="btn btn-sm btn-warning">
+               <a href="{{route ('admin.posts.show', $post->slug)}}" class="btn btn-sm btn-warning">
                   Show
                </a>
 
-               <form action="{{route('admin.posts.destroy', $post->id)}}" method="POST" class="d-inline-block">
+               <form action="{{route('admin.posts.destroy', $post->slug)}}" method="POST" class="d-inline-block">
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="btn btn-sm btn-danger">
