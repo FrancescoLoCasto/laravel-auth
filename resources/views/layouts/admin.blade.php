@@ -42,7 +42,7 @@
                             <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('admin.posts.index') }}">{{ __('Home') }}</a>
+                            <a class="nav-link" href="{{route('admin.posts.index') }}">{{ __('Post') }}</a>
                         </li>
                     </ul>
 
