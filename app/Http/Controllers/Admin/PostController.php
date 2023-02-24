@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 
 
 class PostController extends Controller
@@ -17,6 +18,7 @@ class PostController extends Controller
         'title' => ['required', 'unique:posts'],
         'post_date' => 'required',
         'content' => 'required',
+        'image' => 'required|image',
     ];
     /**
      * Display a listing of the resource.
@@ -51,6 +53,8 @@ class PostController extends Controller
 
         $data['author'] = Auth::user()->name;
         $data['slug'] = Str::slug($data ['title']) ;
+        $data['image'] =Storage::put('uploads',$data['image']);
+
         $newPost = new Post();
         $newPost ->fill($data);
         $newPost->save();
