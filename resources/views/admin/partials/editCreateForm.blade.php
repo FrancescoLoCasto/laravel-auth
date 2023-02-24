@@ -15,6 +15,11 @@
     </div>
 
     <div class="mb-3">
+      <label for="post_content" class="form-label">Post Image</label>
+      <input type="file" class="form-control" id="post_image" placeholder="" name="image" value="{{old('image', $post->image)}}">
+    </div>
+
+    <div class="mb-3">
       <label for="post_date" class="form-label">Post Date</label>
       <input type="datetime" class="form-control" id="post_date" rows="5" name="post_date" value="{{old('post_date', $post->post_date)}}"></input>
     </div>
