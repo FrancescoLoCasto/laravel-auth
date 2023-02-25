@@ -24,9 +24,13 @@
         <a href="{{route('admin.posts.edit', $post->slug)}}" class="btn btn-sm btn-primary">
          Edit
          </a>
-        <a href="#" class="btn btn-sm btn-danger">
-         Delete
-        </a>
+         <form action="{{route('admin.posts.destroy', $post->slug)}}" method="POST" class="d-inline-block">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-sm btn-danger">
+               Delete
+            </button>
+         </form>
       </div>
       <div class="card-footer text-muted">
          {{$post->post_date}}
