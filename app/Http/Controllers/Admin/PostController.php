@@ -53,7 +53,7 @@ class PostController extends Controller
 
         $data['author'] = Auth::user()->name;
         $data['slug'] = Str::slug($data ['title']) ;
-        $data['image'] =Storage::put('uploads',$data['image']);
+        $data['image'] =Storage::put('storage',$data['image']);
 
         $newPost = new Post();
         $newPost ->fill($data);
