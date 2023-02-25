@@ -97,9 +97,19 @@ class PostController extends Controller
                 'title' => ['required', Rule::unique('posts')->ignore($post->id)],
                 'post_date' => 'required|after:yesterday',
                 'content' => 'required',
+                'image'=> 'image|required',
         ]);
         $post->update($data);
         return redirect()->route('admin.posts.show', compact('post'));
+
+        if($request->hasFile('image')){
+            if (!$post->isImageUrl()){
+                Storage::delete($post->image);
+            }
+
+            $data['image'] =Storage::put('storage',$data['image']);
+            
+        }
     }
 
     /**
