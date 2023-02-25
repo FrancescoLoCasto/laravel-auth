@@ -110,6 +110,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        if (!$post->isImageUrl()){
+            Storage::delete($post->image);
+        }
         $post->delete();
         return redirect()->route('admin.posts.index') ->with('message', "The post $post->title has been deleted")->with('message-class','warning');
     }
