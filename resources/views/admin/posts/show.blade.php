@@ -13,10 +13,15 @@
       <div class="card-body">
         <h5 class="card-title">{{$post->title}}</h5>
         <div class="card-body">
-            <img src="{{asset ('storage/' . $post->image)}}" alt="" class="img-fluid">
+         @if (str_starts_with($post->image, 'http'))
+            <img src="{{$post->image}}"
+         @else
+            <img src="{{asset ('storage/' . $post->image)}}" 
+         @endif
+            alt="{{$post->title}} Image" class="img-fluid">
         </div>
         <p class="card-text">{{$post->content}}</p>
-        <a href="{{route('admin.posts.edit', $post->id)}}" class="btn btn-sm btn-primary">
+        <a href="{{route('admin.posts.edit', $post->slug)}}" class="btn btn-sm btn-primary">
          Edit
          </a>
         <a href="#" class="btn btn-sm btn-danger">
